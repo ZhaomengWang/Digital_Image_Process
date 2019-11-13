@@ -31,7 +31,7 @@ def generateFigure(imgW, imgH):
             for k in range(10):
                 img.putpixel((i+j, y+k), line_pixTuple_g)
 
-    #绘制余弦图像
+    #绘制平方函数图像
     a = int(imgH / math.pow(w * (imgW-10), 2))
     for i in range(imgW - 10):
         y = imgH - 10 - int(a * math.pow((w * i), 2))
