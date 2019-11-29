@@ -428,12 +428,12 @@ if __name__ == "__main__":
     img0 = cv.imread(r"./gauss_noise.jpg")
 
     # 算术均值滤波器5*5滤波器大小
-    # ave_gauss_img = average_filter(5, 5, copy.copy(img0))
-    # cv.imwrite("./ave_gauss_img.jpg", ave_gauss_img)
+    ave_gauss_img = average_filter(5, 5, copy.copy(img0))
+    cv.imwrite("./ave_gauss_img.jpg", ave_gauss_img)
 
     # 几何均值滤波器5*5滤波器大小
-    # geometric_gauss_img = imgFilter(img0, 5, GEOMETRIC_MEAN_FILTER)
-    # cv.imwrite("./geometric_gauss_img.jpg", geometric_gauss_img)
+    geometric_gauss_img = imgFilter(img0, 5, GEOMETRIC_MEAN_FILTER)
+    cv.imwrite("./geometric_gauss_img.jpg", geometric_gauss_img)
 
     # 谐波均值滤波器5*5滤波器大小
     hmeans_gauss_img = imgFilter(img0, 5, HMEANS_FILTER)
