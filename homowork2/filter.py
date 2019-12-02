@@ -297,7 +297,7 @@ def selfAdaptingFilter(roi, currentValue,sigma):
     var = np.var(roi)
     return currentValue-(sigma/var)*(currentValue-m)
 
-'''*************************自适应中值滤波器滤波器************************'''
+'''*************************自适应中值滤波器************************'''
 def medianFilterOperator(roi):
     '''
     中值滤波器
@@ -424,49 +424,98 @@ def imgFilterSingle(img, size=3,filterType=MAX_FILTER, q=1,d=2,varOfNoise=0):
 
 if __name__ == "__main__":
 
-    #高斯噪声下的测试
-    img0 = cv.imread(r"./gauss_noise.jpg")
+    # #高斯噪声下的测试
+    # img0 = cv.imread(r"./gauss_noise.jpg")
+    #
+    # # 算术均值滤波器5*5滤波器大小
+    # ave_gauss_img = average_filter(5, 5, copy.copy(img0))
+    # cv.imwrite("./ave_gauss_img.jpg", ave_gauss_img)
+    #
+    # # 几何均值滤波器5*5滤波器大小
+    # geometric_gauss_img = imgFilter(img0, 5, GEOMETRIC_MEAN_FILTER)
+    # cv.imwrite("./geometric_gauss_img.jpg", geometric_gauss_img)
+    #
+    # # 谐波均值滤波器5*5滤波器大小
+    # hmeans_gauss_img = imgFilter(img0, 5, HMEANS_FILTER)
+    # cv.imwrite("./hmeans_gauss_img.jpg", hmeans_gauss_img)
+    #
+    # # 逆谐波均值滤波器5*5滤波器大小
+    # ihmeans_gauss_img = imgFilter(img0, 5, IHMEANS_FILTER)
+    # cv.imwrite("./ihmeans_gauss_img.jpg", ihmeans_gauss_img)
+    #
+    # # 最大值滤波器5*5滤波器大小
+    # max_gauss_img = imgFilter(img0, 5, MAX_FILTER)
+    # cv.imwrite("./max_gauss_img.jpg", max_gauss_img)
+    #
+    # # 最小值滤波器5*5滤波器大小
+    # min_gauss_img = imgFilter(img0, 5, MIN_FILTER)
+    # cv.imwrite("./min_gauss_img.jpg", min_gauss_img)
+    #
+    # # 中值滤波器5*5滤波器大小
+    # med_gauss_img = mid_filter(5, 5, copy.copy(img0))
+    # cv.imwrite("./med_gauss_img.jpg", med_gauss_img)
+    #
+    # # 中点滤波器5*5滤波器大小
+    # mid_gauss_img = imgFilter(img0, 5, MINPOINT_FILTER)
+    # cv.imwrite("./mid_gauss_img.jpg", mid_gauss_img)
+    #
+    # # 修正的阿尔法均值滤波器5*5滤波器大小
+    # alpha_gauss_img = imgFilter(img0, 5, ALPHA_MEAN_FILTER_AMEND)
+    # cv.imwrite("./alpha_gauss_img.jpg", alpha_gauss_img)
+    #
+    # # 自适应局部降低噪声滤波器5*5滤波器大小
+    # self_gauss_img = imgFilter(img0, 5, SELF_ADAPTING_FILTER)
+    # cv.imwrite("./self_gauss_img.jpg", self_gauss_img)
+    #
+    # #自适应中值滤波器5*5滤波器大小
+    # adaptive_gauss_img = adaptive_median_filter(img0,5)
+    # cv.imwrite("./adaptive_gauss_img.jpg", adaptive_gauss_img)
+
+
+
+    # 椒盐噪声下的测试
+    img1 = cv.imread(r"./salt_and_pepper_noise.jpg")
 
     # 算术均值滤波器5*5滤波器大小
-    ave_gauss_img = average_filter(5, 5, copy.copy(img0))
-    cv.imwrite("./ave_gauss_img.jpg", ave_gauss_img)
+    ave_SandP_img = average_filter(5, 5, copy.copy(img1))
+    cv.imwrite("./ave_SandP_img.jpg", ave_SandP_img)
 
     # 几何均值滤波器5*5滤波器大小
-    geometric_gauss_img = imgFilter(img0, 5, GEOMETRIC_MEAN_FILTER)
-    cv.imwrite("./geometric_gauss_img.jpg", geometric_gauss_img)
+    geometric_SandP_img = imgFilter(img1, 5, GEOMETRIC_MEAN_FILTER)
+    cv.imwrite("./geometric_SandP_img.jpg", geometric_SandP_img)
 
     # 谐波均值滤波器5*5滤波器大小
-    hmeans_gauss_img = imgFilter(img0, 5, HMEANS_FILTER)
-    cv.imwrite("./hmeans_gauss_img.jpg", hmeans_gauss_img)
+    hmeans_SandP_img = imgFilter(img1, 5, HMEANS_FILTER)
+    cv.imwrite("./hmeans_SandP_img.jpg", hmeans_SandP_img)
 
     # 逆谐波均值滤波器5*5滤波器大小
-    ihmeans_gauss_img = imgFilter(img0, 5, IHMEANS_FILTER)
-    cv.imwrite("./ihmeans_gauss_img.jpg", ihmeans_gauss_img)
+    ihmeans_SandP_img = imgFilter(img1, 5, IHMEANS_FILTER)
+    cv.imwrite("./ihmeans_SandP_img.jpg", ihmeans_SandP_img)
 
     # 最大值滤波器5*5滤波器大小
-    max_gauss_img = imgFilter(img0, 5, MAX_FILTER)
-    cv.imwrite("./max_gauss_img.jpg", max_gauss_img)
+    max_SandP_img = imgFilter(img1, 5, MAX_FILTER)
+    cv.imwrite("./max_SandP_img.jpg", max_SandP_img)
 
     # 最小值滤波器5*5滤波器大小
-    min_gauss_img = imgFilter(img0, 5, MIN_FILTER)
-    cv.imwrite("./min_gauss_img.jpg", min_gauss_img)
+    min_SandP_img = imgFilter(img1, 5, MIN_FILTER)
+    cv.imwrite("./min_SandP_img.jpg", min_SandP_img)
 
     # 中值滤波器5*5滤波器大小
-    med_gauss_img = mid_filter(5, 5, copy.copy(img0))
-    cv.imwrite("./med_gauss_img.jpg", med_gauss_img)
+    med_SandP_img = mid_filter(5, 5, copy.copy(img1))
+    cv.imwrite("./med_SandP_img.jpg", med_SandP_img)
 
     # 中点滤波器5*5滤波器大小
-    mid_gauss_img = imgFilter(img0, 5, MINPOINT_FILTER)
-    cv.imwrite("./mid_gauss_img.jpg", mid_gauss_img)
+    mid_SandP_img = imgFilter(img1, 5, MINPOINT_FILTER)
+    cv.imwrite("./mid_SandP_img.jpg", mid_SandP_img)
 
     # 修正的阿尔法均值滤波器5*5滤波器大小
-    alpha_gauss_img = imgFilter(img0, 5, ALPHA_MEAN_FILTER_AMEND)
-    cv.imwrite("./alpha_gauss_img.jpg", alpha_gauss_img)
+    alpha_SandP_img = imgFilter(img1, 5, ALPHA_MEAN_FILTER_AMEND)
+    cv.imwrite("./alpha_SandP_img.jpg", alpha_SandP_img)
 
     # 自适应局部降低噪声滤波器5*5滤波器大小
-    self_gauss_img = imgFilter(img0, 5, SELF_ADAPTING_FILTER)
-    cv.imwrite("./self_gauss_img.jpg", self_gauss_img)
+    self_SandP_img = imgFilter(img1, 5, SELF_ADAPTING_FILTER)
+    cv.imwrite("./self_SandP_img.jpg", self_SandP_img)
 
-    #自适应中值滤波器滤波器5*5滤波器大小
-    adaptive_gauss_img = adaptive_median_filter(img0,5)
-    cv.imwrite("./adaptive_gauss_img.jpg", adaptive_gauss_img)
+    # 自适应中值滤波器滤波器5*5滤波器大小
+    adaptive_SandP_img = adaptive_median_filter(img1, 5)
+    cv.imwrite("./adaptive_SandP_img.jpg", adaptive_SandP_img)
